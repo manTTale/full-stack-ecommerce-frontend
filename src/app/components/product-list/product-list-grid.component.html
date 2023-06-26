@@ -8,21 +8,18 @@
             <div class="row">
                 <!-- loop over the collection of products -->
                 <div *ngFor="let tempProduct of products" class="col-md-3">
-
                     <div class="product-box">
-
                         <a routerLink="/products/{{ tempProduct.id }}">
                             <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
-                        </a> 
+                        </a>
 
-                        <a routerLink="/products/{{ tempProduct.id }}">
+                        <a routerLink="/products{{ tempProduct.id }}">
                             <h1>{{ tempProduct.name }}</h1>
                         </a>
 
-                        <div class="price">{{tempProduct.unitPrice | currency:'USD'}}</div>
-                        <a href="#" class="primary-btn">Add to card</a>
+                        <div class="price">{{ tempProduct.unitPrice | currency:'USD' }}</div>
+                        <a href="#" class="primary-btn">Add to cart</a>
                     </div>
-
                 </div>
 
                 <!-- if products is empty then display a message to the user -->
