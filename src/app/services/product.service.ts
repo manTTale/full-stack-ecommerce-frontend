@@ -9,6 +9,9 @@ import { ProductCategory } from '../common/product-category';
   providedIn: 'root'
 })
 export class ProductService {
+  searchProducts(theKeyword: string) {
+    throw new Error('Method not implemented.');
+  }
 
   private baseUrl = 'http://localhost:8080/api/products';
   private categoryUrl = 'http://localhost:8080/api/product-category';
