@@ -10,29 +10,34 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
 
-  products: Product[];
-  currentCategoryId: number;
-  
+  products: Product[] = [];
+  currentCategoryId: number = 1;
+  currentCategoryName: string = "";
+
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) { }
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
-    });    
+    });
   }
 
-  listProducts(){
+  listProducts() {
     //check if id param is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id');
 
-    if(hasCategoryId) {
+    if (hasCategoryId) {
       //get id and convert to string using +
-      this.currentCategoryId = +this.route.snapshot.paramMap.get('id' );
+      this.currentCategoryId = +this.route.snapshot.paramMap.get('id');
+
+      //get the name param string
+      this.currentCategoryName = this.route.snapshot.paramMap.get('name');
     }
-    else{
+    else {
       //not category id found, we set default to 1
-      this.currentCategoryId=1;
+      this.currentCategoryId = 1;
+      this.currentCategoryName = 'Books';
     }
 
     //get the products for the given id
