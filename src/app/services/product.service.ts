@@ -9,10 +9,6 @@ import { ProductCategory } from '../common/product-category';
   providedIn: 'root'
 })
 export class ProductService {
-  searchProducts(theKeyword: string) {
-    throw new Error('Method not implemented.');
-  }
-
   private baseUrl = 'http://localhost:8080/api/products';
   private categoryUrl = 'http://localhost:8080/api/product-category';
 
@@ -33,6 +29,14 @@ export class ProductService {
       map(response => response._embedded.productCategory)
     );
     
+  }
+
+  searchProducts(theKeyword: string): Observable<ProductCategory[]>  {
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
+      map(response => response._embedded.products)
+    );
   }
 }
 
