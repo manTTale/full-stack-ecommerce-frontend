@@ -1,4 +1,9 @@
 export class Product {
+    // temporary fix
+    id: number;
+    
+    
+    
     sku: string;
     name: string;
     description: string;
