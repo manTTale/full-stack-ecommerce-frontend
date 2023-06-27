@@ -1,6 +1,6 @@
 
 export class Product {   
-    // temporary fix
+    // TODO temporary fix
     id: number;
     sku: string;
     name: string;
