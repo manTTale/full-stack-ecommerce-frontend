@@ -1,6 +1,6 @@
 
 export class Product {   
-    // TODO temporary fix
+    //fixed issue with missing id
     id: number;
     sku: string;
     name: string;
