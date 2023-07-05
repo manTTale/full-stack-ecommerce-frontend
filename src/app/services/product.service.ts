@@ -22,9 +22,9 @@ export class ProductService {
     return this.getProducts(searchUrl);
   }
 
-  getProductListPaginate(theCategoryId: number,
-                         thePage: number,
-                         thePageSize: number): Observable<GetResponseProducts> {
+  getProductListPaginate(thePage: number,
+                         thePageSize: number,
+                         theCategoryId: number): Observable<GetResponseProducts> {
 
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
                     + `&page=${thePage}&size=${thePageSize}`;
