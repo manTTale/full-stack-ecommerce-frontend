@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { filter } from 'rxjs';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -19,7 +20,7 @@ export class ProductListComponent implements OnInit {
 
   //props for pagination
   thePageNumber: number = 1;
-  thePageSize: number = 10;
+  thePageSize: number = 5;
   theTotalElements: number = 0;
 
 
@@ -103,4 +104,9 @@ export class ProductListComponent implements OnInit {
     }
   }
 
+  updatePageSize(pageSize: number){
+    this.thePageSize=pageSize;
+    this.thePageNumber=1;
+    this.listProducts();
+  }
 }
