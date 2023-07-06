@@ -88,18 +88,18 @@ export class ProductListComponent implements OnInit {
 
 
     //get the products for the given id
-    this.productService.getProductListPaginate(this.thePageNumber-1, //-1 because in Spring pages start with 0 but in Angular they start with 1
-                                               this.thePageSize,
-                                               this.currentCategoryId)
-                                               .subscribe(this.processResult());
+    this.productService.getProductListPaginate(this.thePageNumber - 1, //-1 because in Spring pages start with 0 but in Angular they start with 1
+      this.thePageSize,
+      this.currentCategoryId)
+      .subscribe(this.processResult());
   }
 
-  processResult(){
+  processResult() {
     return (data: { _embedded: { products: Product[]; }; page: { number: number; size: number; totalElements: number; }; }) => {
       this.products = data._embedded.products;
       this.thePageNumber = data.page.number + 1; //+1 because in Spring pages start with 0 but in Angular they start with 1
       this.thePageSize = data.page.size;
-      this.theTotalElements = data.page.totalElements; 
+      this.theTotalElements = data.page.totalElements;
     }
   }
 
