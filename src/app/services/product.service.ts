@@ -48,7 +48,7 @@ export class ProductService {
 
   searchProductsPaginate(thePage: number,
                          thePageSize: number,
-                         theKeyword: number): Observable<GetResponseProducts> {
+                         theKeyword: string): Observable<GetResponseProducts> {
 
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`
                     + `&page=${thePage}&size=${thePageSize}`;
