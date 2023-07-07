@@ -107,6 +107,7 @@ export class ProductListComponent implements OnInit {
       .subscribe(this.processResult());
   }
 
+  
   processResult() {
     return (data: { _embedded: { products: Product[]; }; page: { number: number; size: number; totalElements: number; }; }) => {
       this.products = data._embedded.products;
